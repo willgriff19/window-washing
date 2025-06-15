@@ -67,7 +67,8 @@
 
   /* Remove border from all elements, only apply to specific classes */
   .bordered {
-    @apply border border-customBorder;
+    @apply border; /* Tailwind border width */
+    border-color: hsl(var(--border)); /* Custom color without Tailwind utility */
   }
 }
  
