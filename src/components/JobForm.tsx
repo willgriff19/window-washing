@@ -377,12 +377,17 @@ export function JobForm({ initialQuote }: JobFormProps) {
             <label className="block text-md font-semibold text-gray-800 mb-1">Description</label>
             <div className="flex flex-col gap-2 mb-1 w-full px-8">
               {['Outside', 'Inside', 'Screens'].map((option) => (
-                <label key={option} className="flex items-center gap-2 text-base font-semibold cursor-pointer select-none">
+                <label
+                  key={option}
+                  htmlFor={`desc-${option}`}
+                  className="flex items-center gap-3 text-base font-semibold cursor-pointer select-none min-h-[48px] rounded-lg px-2 transition-colors touch-manipulation active:bg-blue-100"
+                >
                   <input
+                    id={`desc-${option}`}
                     type="checkbox"
                     checked={descOptions[option]}
                     onChange={() => handleDescOptionChange(option)}
-                    className="accent-blue-600 w-5 h-5 rounded"
+                    className="accent-blue-600 w-6 h-6 rounded transition-colors duration-150"
                   />
                   {option}
                 </label>
