@@ -13,6 +13,8 @@ export function QuoteCalculator({ onQuoteChange }: QuoteCalculatorProps) {
   const [outsideOnlyPrice, setOutsideOnlyPrice] = useState<number>(0);
   const [message, setMessage] = useState<string>('Enter the number of panes to see the suggested quote.');
 
+  const baseButtonClass = "rounded-full shadow touch-manipulation min-w-[48px] min-h-[48px] flex items-center justify-center focus:outline-none focus:ring-2";
+
   useEffect(() => {
     if (panes === undefined || panes === 0) {
       setMessage('Enter the number of panes to see the suggested quote.');
@@ -69,8 +71,8 @@ export function QuoteCalculator({ onQuoteChange }: QuoteCalculatorProps) {
           type="button"
           aria-label="Reset counter"
           onClick={reset}
-          className="flex items-center gap-2 rounded-full bg-red-100 border border-red-500 text-red-700 w-auto px-3 md:px-4 h-12 md:h-14 shadow hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-red-400 text-lg md:text-xl font-bold"
-          whileTap={{ scale: 0.7, rotate: 10, backgroundColor: '#fbbf24' }}
+          className={`${baseButtonClass} bg-red-100 border border-red-500 text-red-700 w-auto px-3 md:px-4 h-12 md:h-14 text-lg md:text-xl font-bold focus:ring-red-400 hover:bg-red-200`}
+          whileTap={{ scale: 0.95 }}
         >
           <span className="text-xl md:text-2xl">⟲</span>
           <span className="font-semibold">Reset</span>
@@ -81,8 +83,8 @@ export function QuoteCalculator({ onQuoteChange }: QuoteCalculatorProps) {
           aria-label="Decrement panes"
           onClick={decrement}
           disabled={!panes}
-          className={`rounded-full bg-blue-200 text-blue-900 w-20 h-20 md:w-24 md:h-24 flex items-center justify-center shadow hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-4xl md:text-5xl font-bold ${!panes ? 'opacity-50 cursor-not-allowed' : ''}`}
-          whileTap={{ scale: 0.7, rotate: -10, backgroundColor: '#fbbf24' }}
+          className={`${baseButtonClass} bg-blue-200 text-blue-900 w-24 h-24 md:w-32 md:h-32 text-4xl md:text-5xl font-bold focus:ring-blue-400 hover:bg-blue-300 ${!panes ? 'opacity-50 cursor-not-allowed' : ''}`}
+          whileTap={{ scale: 0.95 }}
         >
           −
         </motion.button>
@@ -102,8 +104,8 @@ export function QuoteCalculator({ onQuoteChange }: QuoteCalculatorProps) {
           type="button"
           aria-label="Increment panes"
           onClick={increment}
-          className="rounded-full bg-blue-500 text-white w-20 h-20 md:w-24 md:h-24 flex items-center justify-center shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 text-4xl md:text-5xl font-bold"
-          whileTap={{ scale: 0.7, rotate: 10, backgroundColor: '#fbbf24' }}
+          className={`${baseButtonClass} bg-blue-500 text-white w-24 h-24 md:w-32 md:h-32 text-4xl md:text-5xl font-bold focus:ring-blue-400 hover:bg-blue-600`}
+          whileTap={{ scale: 0.95 }}
         >
           +
         </motion.button>
