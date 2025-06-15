@@ -375,9 +375,9 @@ export function JobForm({ initialQuote }: JobFormProps) {
           {/* Description Options and Notes */}
           <div className="flex flex-col space-y-3 mt-2">
             <label className="block text-md font-semibold text-gray-800 mb-1">Description</label>
-            <div className="flex flex-wrap gap-3 mb-1 w-full justify-between px-8">
+            <div className="flex flex-col gap-2 mb-1 w-full px-8">
               {['Outside', 'Inside', 'Screens'].map((option) => (
-                <label key={option} className="flex items-center gap-2 text-base font-semibold cursor-pointer select-none whitespace-nowrap">
+                <label key={option} className="flex items-center gap-2 text-base font-semibold cursor-pointer select-none">
                   <input
                     type="checkbox"
                     checked={descOptions[option]}
