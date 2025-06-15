@@ -65,11 +65,11 @@ export function QuoteCalculator({ onQuoteChange }: QuoteCalculatorProps) {
           type="button"
           aria-label="Reset counter"
           onClick={reset}
-          className="flex items-center gap-2 rounded-full bg-red-100 border border-red-500 text-red-700 w-auto px-5 h-16 md:h-20 shadow hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-red-400 text-2xl font-bold"
+          className="flex items-center gap-2 rounded-full bg-red-100 border border-red-500 text-red-700 w-auto px-4 md:px-6 h-16 md:h-20 shadow hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-red-400 text-2xl md:text-3xl font-bold"
           whileTap={{ scale: 0.7, rotate: 10, backgroundColor: '#fbbf24' }}
         >
-          <span className="text-2xl">⟲</span>
-          <span className="text-lg font-semibold">Reset</span>
+          <span className="text-3xl md:text-4xl">⟲</span>
+          <span className="text-lg md:text-xl font-semibold">Reset</span>
         </motion.button>
         {/* Decrement Button */}
         <motion.button
@@ -77,7 +77,7 @@ export function QuoteCalculator({ onQuoteChange }: QuoteCalculatorProps) {
           aria-label="Decrement panes"
           onClick={decrement}
           disabled={panes === 0}
-          className={`rounded-full bg-blue-200 text-blue-900 w-16 h-16 md:w-20 md:h-20 flex items-center justify-center shadow hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-3xl font-bold ${panes === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
+          className={`rounded-full bg-blue-200 text-blue-900 w-16 h-16 md:w-20 md:h-20 flex items-center justify-center shadow hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-3xl md:text-4xl font-bold ${panes === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
           whileTap={{ scale: 0.7, rotate: -10, backgroundColor: '#fbbf24' }}
         >
           −
@@ -89,7 +89,7 @@ export function QuoteCalculator({ onQuoteChange }: QuoteCalculatorProps) {
           value={panes}
           onChange={handleInputChange}
           min="0"
-          className="block w-24 md:w-32 text-center rounded-lg border border-gray-300 px-3 py-3 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-3xl font-bold bg-white"
+          className="block w-20 md:w-28 text-center rounded-lg border border-gray-300 px-3 py-4 md:py-5 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-3xl md:text-4xl font-bold bg-white"
           aria-label="Number of panes"
         />
         {/* Increment Button */}
@@ -97,7 +97,7 @@ export function QuoteCalculator({ onQuoteChange }: QuoteCalculatorProps) {
           type="button"
           aria-label="Increment panes"
           onClick={increment}
-          className="rounded-full bg-blue-500 text-white w-16 h-16 md:w-20 md:h-20 flex items-center justify-center shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 text-3xl font-bold"
+          className="rounded-full bg-blue-500 text-white w-16 h-16 md:w-20 md:h-20 flex items-center justify-center shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 text-3xl md:text-4xl font-bold"
           whileTap={{ scale: 0.7, rotate: 10, backgroundColor: '#fbbf24' }}
         >
           +
