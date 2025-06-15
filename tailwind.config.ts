@@ -29,7 +29,7 @@ const config: Config = {
           800: '#1f2937',
           900: '#111827',
         },
-        customBorder: '#e5e7eb',
+        customBorder: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
