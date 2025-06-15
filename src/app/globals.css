@@ -67,7 +67,7 @@
 
   /* Remove border from all elements, only apply to specific classes */
   .bordered {
-    @apply border border-neutral-200;
+    @apply border border-border;
   }
 }
  
