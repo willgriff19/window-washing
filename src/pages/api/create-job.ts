@@ -59,9 +59,9 @@ export default async function handler(
       return res.status(400).json({ message: 'Missing required form fields.' });
     }
 
-    // Combine date and time, assuming MST (UTC-7)
-    // Notion expects ISO 8601 format. Example: 2024-07-15T10:00:00.000-07:00
-    const jobDateTimeISO = `${jobDate}T${jobTime}:00.000-07:00`;
+    // Combine date and time with proper timezone handling
+    const localDateTime = new Date(`${jobDate}T${jobTime}`);
+    const jobDateTimeISO = localDateTime.toISOString();
 
     const googleMapsUrl = `https://www.google.com/maps?q=${encodeURIComponent(address)}`;
 

@@ -75,12 +75,12 @@ export async function createCalendarEvent(formData: GCalEventFormData) {
     location: address,
     description: eventDescription,
     start: {
-      dateTime: startTime.toISOString(), // Use full ISO string with Z (UTC)
-      timeZone: process.env.APP_TIMEZONE || 'America/Denver', // Use env var or default
+      dateTime: startTime.toISOString(),
+      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone, // Use local timezone
     },
     end: {
-      dateTime: endTime.toISOString(), // Use full ISO string with Z (UTC)
-      timeZone: process.env.APP_TIMEZONE || 'America/Denver', // Use env var or default
+      dateTime: endTime.toISOString(),
+      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone, // Use local timezone
     },
     // attendees: [], // Optional: add attendees if needed
     // reminders: { ... }, // Optional: add reminders
