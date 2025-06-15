@@ -83,7 +83,7 @@ export function QuoteCalculator({ onQuoteChange }: QuoteCalculatorProps) {
           aria-label="Decrement panes"
           onClick={decrement}
           disabled={!panes}
-          className={`${baseButtonClass} bg-blue-200 text-blue-900 w-24 h-24 md:w-32 md:h-32 text-4xl md:text-5xl font-bold focus:ring-blue-400 hover:bg-blue-300 ${!panes ? 'opacity-50 cursor-not-allowed' : ''}`}
+          className={`${baseButtonClass} bg-blue-200 text-blue-900 w-24 h-24 md:w-32 md:h-32 text-4xl md:text-5xl font-bold focus:ring-blue-400 hover:bg-blue-300 p-4 -m-4 ${!panes ? 'opacity-50 cursor-not-allowed' : ''}`}
           whileTap={{ scale: 0.95 }}
         >
           −
@@ -104,7 +104,7 @@ export function QuoteCalculator({ onQuoteChange }: QuoteCalculatorProps) {
           type="button"
           aria-label="Increment panes"
           onClick={increment}
-          className={`${baseButtonClass} bg-blue-500 text-white w-24 h-24 md:w-32 md:h-32 text-4xl md:text-5xl font-bold focus:ring-blue-400 hover:bg-blue-600`}
+          className={`${baseButtonClass} bg-blue-500 text-white w-24 h-24 md:w-32 md:h-32 text-4xl md:text-5xl font-bold focus:ring-blue-400 hover:bg-blue-600 p-4 -m-4`}
           whileTap={{ scale: 0.95 }}
         >
           +
