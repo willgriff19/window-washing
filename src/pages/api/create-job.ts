@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { Client, APIErrorCode, isNotionClientError, ClientErrorCode } from '@notionhq/client';
 import { createCalendarEvent } from '../../lib/gcal'; // Adjusted path
 import { sendJobEmail } from '../../lib/email';
-
+//
 // Initialize Notion client
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 const DATABASE_ID = process.env.NOTION_DATABASE_ID || '';
