@@ -49,7 +49,7 @@ const calendar = google.calendar({ version: 'v3', auth: oauth2Client });
  */
 function calculateEventDuration(quote: number): number {
   if (quote <= 0) return 0.5; // Minimum duration, e.g., 30 mins
-  const calculatedHours = quote / 50;
+  const calculatedHours = quote / 60;
   return Math.ceil(calculatedHours * 2) / 2; // Rounds up to the nearest 0.5
 }
 
