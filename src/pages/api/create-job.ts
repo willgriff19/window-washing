@@ -60,8 +60,31 @@ export default async function handler(
     }
 
     // Combine date and time with proper timezone handling
-    const localDateTime = new Date(`${jobDate}T${jobTime}`);
-    const jobDateTimeISO = localDateTime.toISOString();
+    const dateParts = jobDate.split('-').map(Number);
+    const timeParts = jobTime.split(':').map(Number);
+    // Note: The month is 0-indexed in the Date constructor (0=Jan, 1=Feb, etc.)
+    const localDateTime = new Date(dateParts[0], dateParts[1] - 1, dateParts[2], timeParts[0], timeParts[1]);
+    
+    // 2. Get the server's timezone offset in minutes.
+    // For MDT (UTC-6), this returns 360. The sign is the reverse of the standard notation.
+    const timezoneOffsetMinutes = localDateTime.getTimezoneOffset();
+    
+    // 3. Convert the offset to the standard +/-HH:mm format.
+    const offsetSign = timezoneOffsetMinutes > 0 ? '-' : '+';
+    const offsetHours = Math.abs(Math.floor(timezoneOffsetMinutes / 60));
+    const offsetMinutes = Math.abs(timezoneOffsetMinutes % 60);
+    const formattedOffset = `${offsetSign}${String(offsetHours).padStart(2, '0')}:${String(offsetMinutes).padStart(2, '0')}`;
+    
+    // 4. Construct the final ISO string with the local offset.
+    // We manually format it because .toISOString() would convert it back to UTC.
+    const year = localDateTime.getFullYear();
+    const month = String(localDateTime.getMonth() + 1).padStart(2, '0');
+    const day = String(localDateTime.getDate()).padStart(2, '0');
+    const hours = String(localDateTime.getHours()).padStart(2, '0');
+    const minutes = String(localDateTime.getMinutes()).padStart(2, '0');
+    const seconds = String(localDateTime.getSeconds()).padStart(2, '0');
+    
+    const jobDateTimeISO = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}${formattedOffset}`;
 
     const googleMapsUrl = `https://www.google.com/maps?q=${encodeURIComponent(address)}`;
 
